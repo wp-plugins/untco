@@ -3,7 +3,7 @@
 Plugin Name: untco
 Plugin URI: http://www.ruanyifeng.com/webapp/untco.html
 Description: This plugin is based on Twitter Tools. When a post is created automatically from a tweet, this plugin will unshorten all t.co short URLs in the tweet into their original URLs.
-Version: 0.2
+Version: 0.2.1
 Author: Ruan YiFeng
 Author URI: http://www.ruanyifeng.com
 License: GPL2
