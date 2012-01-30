@@ -44,7 +44,7 @@ None
 
 = A question that you might have =
 
-Drop me an Email.
+Drop me an Email (yifeng.ruan@gmail.com).
 
 == Changelog ==
 
