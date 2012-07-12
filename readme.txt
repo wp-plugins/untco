@@ -3,7 +3,7 @@ Contributors: ruanyf
 Donate link: http://www.ruanyifeng.com/
 Tags: twitter, url
 Requires at least: 1.5.0
-Tested up to: 3.3.1
+Tested up to: 3.4.1
 Stable tag: trunk
 
 When a post is created automatically from a tweet, this plugin will unshorten all t.co short URLs in the tweet into their original URLs.  
@@ -47,6 +47,12 @@ None
 Drop me an Email (yifeng.ruan@gmail.com).
 
 == Changelog ==
+
+= 0.3 =
+
+* Support unshortening https URL.
+* Adapt the altering of HTTP response head from t.co.
+* Fix some bugs.
 
 = 0.2 =
 
