@@ -3,9 +3,9 @@
 Plugin Name: untco
 Plugin URI: http://www.ruanyifeng.com/webapp/untco.html
 Description: This plugin is based on Twitter Tools. When a post is created automatically from a tweet, this plugin will unshorten all t.co short URLs in the tweet into their original URLs.
-Version: 0.2
+Version: 0.3
 Author: Ruan YiFeng
-Author URI: http://www.ruanyieng.com
+Author URI: http://www.ruanyifeng.com
 License: GPL2
 */
 
@@ -28,7 +28,7 @@ License: GPL2
 
 function untco_unShort($matches){
 	
-	$link_url = 'http:'.'//'.$matches[1];
+	$link_url = $matches[1].'://'.$matches[2];
 
 	$ch = curl_init();
 
@@ -54,7 +54,12 @@ function untco_curlData($ch, $data=null) {
 		$r = $buffer;
 		$buffer = '';
 		$rArr = explode("\r\n", $r);
-		return substr($rArr[3],10);
+                foreach ($rArr as $value){
+                  if (substr($value,0,8) == "Location"){
+                    return substr($value,10);
+                  }
+                }
+		return "";
 	} else {
 		$buffer .= $data;
 		return strlen($data);
@@ -62,7 +67,7 @@ function untco_curlData($ch, $data=null) {
 }
 
 function untco_findLinks($text) {
-	$pattern = '/http:\/\/(t\.co\/[0-9a-zA-Z]*)/i';
+	$pattern = '/(https?):\/\/(t\.co\/[0-9a-zA-Z]*)/i';
 	$text = preg_replace_callback($pattern,'untco_unShort',$text);
 
 	return $text;
